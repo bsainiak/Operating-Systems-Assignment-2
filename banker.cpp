@@ -21,6 +21,19 @@ int main() {
 		std::cout << "Unable to open file\n";	//Checks to make sure file opened
 		return 0;
 	}
+	input >> ch;
+	while(!input.eof()) {	//Reads until end of file
+		if(ch == ':') {
+			input >> ch;
+			while(ch != ';') {		//Moves all the characters that are in between : and ; into the vector
+				info.push_back(static_cast<int>(ch - '0'));	//Subtracts '0' to make the conversion from character to integer correct for the numbers
+				input >> ch;
+			}
+		}
+		input >> ch;
+	}
+	std::cout << "\n";
+	input.close();		//Closes file
 }
 int fillMatrix(int matrix[processes][resources], vector<int>& info) {	//Function to fill a matrix
 	int i = 0;
