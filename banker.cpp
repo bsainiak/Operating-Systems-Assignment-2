@@ -34,6 +34,26 @@ int main() {
 	}
 	std::cout << "\n";
 	input.close();		//Closes file
+
+	reverse(info.begin(),info.end());	//Reverses vector of information
+	
+	int allocated[processes][resources];	//Creates the matrices for allocated, max, needed, and an array for available
+	int max[processes][resources];
+	int needed[processes][resources];
+	int available[resources];
+
+	fillMatrix(allocated, info);	//Fills in allocated matrix
+	fillMatrix(max, info);		//Fills in max matrix
+
+	int a = 0;
+	while(a < resources) {
+		available[a] = info.back();	//Puts the rest of the info in vector into available resources array
+		info.pop_back();
+		a++;
+	}
+
+	int b = 0;
+	int c = 0;
 }
 int fillMatrix(int matrix[processes][resources], vector<int>& info) {	//Function to fill a matrix
 	int i = 0;
