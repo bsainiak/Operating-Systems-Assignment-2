@@ -54,6 +54,21 @@ int main() {
 
 	int b = 0;
 	int c = 0;
+
+	while(b < processes) {		//Finds the needed matrix from the max and allocated matrices
+		c = 0;
+		while(c < resources) {
+			needed[b][c] = max[b][c] - allocated[b][c];
+			c++;
+		}
+		b++;
+	}
+
+	int finished[processes], path[processes], x = 0;	//Creates array to hold which processes still have to finish, and what path is safe
+	int i, j, k, y;
+	for (k = 0; k < processes; k++) {
+		finished[k] = 0;
+	}
 }
 int fillMatrix(int matrix[processes][resources], vector<int>& info) {	//Function to fill a matrix
 	int i = 0;
