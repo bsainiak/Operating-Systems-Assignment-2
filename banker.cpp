@@ -8,13 +8,13 @@
 
 using namespace std;
 
-const int processes = 5;
+const int processes = 5; //Sets variables that can be altered depending on the input given
 const int resources = 3;
 
-int fillMatrix(int [processes][resources], vector<int>&);
+int fillMatrix(int [processes][resources], vector<int>&); //Function header for fillMatrix
 
 int main() {
-   	vector<int> info;	//Creates vector that takes information from file
+   	vector<int> info;	//Creates a vector that will read information from the file
 	char ch;
 	std::ifstream input ("input.txt");
 	if(!input.is_open()) {
@@ -26,7 +26,7 @@ int main() {
 		if(ch == ':') {
 			input >> ch;
 			while(ch != ';') {		//Moves all the characters that are in between : and ; into the vector
-				info.push_back(static_cast<int>(ch - '0'));	//Subtracts '0' to make the conversion from character to integer correct for the numbers
+				info.push_back(static_cast<int>(ch - '0'));	//Converts the character to an integer
 				input >> ch;
 			}
 		}
@@ -35,7 +35,7 @@ int main() {
 	std::cout << "\n";
 	input.close();		//Closes file
 
-	reverse(info.begin(),info.end());	//Reverses vector of information
+	reverse(info.begin(),info.end());	//Reverses vector of information so that it can be easily read by banker's algorithm
 	
 	int allocated[processes][resources];	//Creates the matrices for allocated, max, needed, and an array for available
 	int max[processes][resources];

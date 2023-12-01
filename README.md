@@ -1,2 +1,3 @@
 # Operating Systems Assignment 2
  
+Hello! This program uses the banker's algorithm to decide the most efficient order to run a set of processes based on the amount of resources available. This solution uses multidimensional arrays and vectors in order to store the information from a text file. After the information is stored within the multidimensional array the data is then reversed to be processes by the banker's algorithim. After the available resources are taken from the info vector and put into a multidimensional array the needed resources for each process is determined and stored into a separate array
