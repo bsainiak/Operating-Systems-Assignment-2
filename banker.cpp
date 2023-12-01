@@ -69,6 +69,34 @@ int main() {
 	for (k = 0; k < processes; k++) {
 		finished[k] = 0;
 	}
+
+	for (k = 0; k < 5; k++) {
+		for (i = 0; i < processes; i++) {
+			if (finished[i] == 0) {
+				int flag = 0;
+				for (j = 0; j < resources; j++) {	//Checks if a process could run with the available resources
+					if (needed[i][j] > available[j]){
+						flag = 1;
+						break;
+					}
+				}
+				if (flag == 0) {	//If process could run with available resources
+					path[x++] = i;	//Places process into the next spot in the path to run
+					for (y = 0; y < resources; y++) {
+						available[y] += allocated[i][y];	//Puts allocated resources into available
+					}
+					finished[i] = 1;	//Changes the status of this process to finished
+				}
+			}
+		}
+	}
+	std::cout << "The following is the safe sequence for the processes to run:\n";
+	for (i = 0; i < (processes - 1); i++) {
+		std::cout << " P" << path[i] << " ->";		//Prints the safe sequence for the processes to run
+	}
+	std::cout << " P" << path[processes - 1] << "\n";
+
+	return 0;
 }
 int fillMatrix(int matrix[processes][resources], vector<int>& info) {	//Function to fill a matrix
 	int i = 0;
