@@ -1,0 +1,16 @@
+Brandon Sainiak Banker's Algorithm Documentation
+
+When creating this project I first started by trying to decide what would be the best way to represent the data.
+At first I was debating on using a structure to represent the processes and then read in variables to represent the associated resources for the processes.
+The implementation for this was not elegant so I decided to swap my focus and try to implement the code using a multidimensional array.
+I started by developing a function that would take the information that was stored in a vector and then put it into a multidimensional array.
+This was used to format the information from input.txt that was placed into a vector into a multidimensional array that I could work with.
+After this I implemented the opening and closing of input.txt and placed the characters after the colon and before a new semicolon in a vector.
+I then created 4 vectors (allocated, max, needed, and available) to be used with the banker's algorithm.
+After filling the allocated and max arrays with the information stored within the info vector I determined the needed resources for each process and stored it in an array.
+Once all of the multidimensional arrays were prepped I looped through them to figure out which processes were able to be serviced based on the current amount of resources.
+After the process was serviced it was marked as finished and it's resources were freed to be used by other processes.
+The safe order of the processes was then printed to the user.
+I felt that this project was a good way to understand how algorithms can be used in different ways.
+It was interesting to see how adding a failsafe such as the banker's algorithm can prevent deadlock from occuring within the processes.
+This gave me a better understanding of how deadlock prevention can be implemented in programs.

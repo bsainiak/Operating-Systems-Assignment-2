@@ -70,13 +70,14 @@ int main() {
 		finished[k] = 0;
 	}
 
+	//Implementation of banker's algorithm
 	for (k = 0; k < 5; k++) {
 		for (i = 0; i < processes; i++) {
 			if (finished[i] == 0) {
 				int flag = 0;
-				for (j = 0; j < resources; j++) {	//Checks if a process could run with the available resources
+				for (j = 0; j < resources; j++) {	//Checks if a process can run based on the resources available
 					if (needed[i][j] > available[j]){
-						flag = 1;
+						flag = 1; //flag marked to show the process cannot run at the time
 						break;
 					}
 				}
@@ -85,7 +86,7 @@ int main() {
 					for (y = 0; y < resources; y++) {
 						available[y] += allocated[i][y];	//Puts allocated resources into available
 					}
-					finished[i] = 1;	//Changes the status of this process to finished
+					finished[i] = 1;	//Marks the process as complete
 				}
 			}
 		}
